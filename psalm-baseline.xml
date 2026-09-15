@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="7.0.0-beta21@5df32a912debecfb27ffadcd63bf9434d500dfe5">
+  <file src="src/Model/Pagination.php">
+    <PossiblyNullArgument>
+      <code><![CDATA[$this->maxPage]]></code>
+    </PossiblyNullArgument>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$hasNext]]></code>
+      <code><![CDATA[$hasPrevious]]></code>
+      <code><![CDATA[$maxPage]]></code>
+      <code><![CDATA[$offset]]></code>
+      <code><![CDATA[$range]]></code>
+    </PropertyNotSetInConstructor>
+    <UninitializedProperty>
+      <code><![CDATA[$this->maxPage]]></code>
+      <code><![CDATA[$this->maxPage]]></code>
+    </UninitializedProperty>
+  </file>
+</files>
