@@ -8,6 +8,7 @@ use Override;
 use Throwable;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Connection;
+use LesAbstractSite\Model\Platform;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -23,7 +24,7 @@ final class LogVisitMiddleware implements MiddlewareInterface
      */
     public function __construct(
         private readonly Connection $db,
-        private readonly string $platform,
+        private readonly Platform $platform,
     ) {}
 
     #[Override]
