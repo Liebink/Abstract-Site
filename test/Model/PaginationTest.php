@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Model;
+namespace LiebAbstractSiteTest\Model;
 
-use LesAbstractSite\Model\Pagination;
+use LiebAbstractSite\Model\Pagination;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 

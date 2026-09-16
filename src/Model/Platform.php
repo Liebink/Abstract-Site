@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LesAbstractSite\Model;
+namespace LiebAbstractSite\Model;
 
 use LesValueObject\Enum\EnumValueObject;
 use LesValueObject\Enum\Helper\EnumValueHelper;

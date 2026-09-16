@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace LesAbstractSite\Middleware;
+namespace LiebAbstractSite\Middleware;
 
 use Override;
 use Throwable;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Connection;
-use LesAbstractSite\Model\Platform;
+use LiebAbstractSite\Model\Platform;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Message\ServerRequestInterface;

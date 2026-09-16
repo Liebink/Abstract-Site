@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace LesAbstractSite\Database\Querier;
+namespace LiebAbstractSite\Database\Querier;
 
 use JsonException;
 use RuntimeException;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Connection;
-use LesAbstractSite\Model\Platform;
 use Doctrine\DBAL\Query\QueryBuilder;
 
 abstract class AbstractQuerier

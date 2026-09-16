@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace LesAbstractSite\Model\Exception;
+namespace LiebAbstractSite\Model\Exception;
 
 use Exception;
-use LesAbstractSite\Exception\AbstractSiteException;
+use LiebAbstractSite\Exception\AbstractSiteException;
 
 /**
  * @psalm-immutable

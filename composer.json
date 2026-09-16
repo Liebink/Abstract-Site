@@ -1,5 +1,5 @@
 {
-  "name": "lesname/abstract-site",
+  "name": "liebink/abstract-site",
   "license": "MIT",
   "require": {
     "php": "^8.5.0",
@@ -19,12 +19,12 @@
   },
   "autoload": {
     "psr-4": {
-      "LesAbstractSite\\": "src/"
+      "LiebAbstractSite\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "LesAbstractSiteTest\\": "src/"
+      "LiebAbstractSiteTest\\": "test/"
     }
   },
   "require-dev": {
