@@ -2,15 +2,13 @@
 
 declare(strict_types=1);
 
-namespace LesAbstractSite\Database\Querier\Contributor;
+namespace LiebAbstractSite\Database\Querier\Contributor;
 
 use Override;
-use JsonException;
-use RuntimeException;
 use Doctrine\DBAL\Connection;
-use LesAbstractSite\Model\Platform;
-use LesAbstractSite\Database\Querier\AbstractQuerier;
-use LesAbstractSite\Database\Querier\Contributor\Applier\ContributorApplier;
+use LiebAbstractSite\Model\Platform;
+use LiebAbstractSite\Database\Querier\AbstractQuerier;
+use LiebAbstractSite\Database\Querier\Contributor\Applier\ContributorApplier;
 
 final class ContributorQuerier extends AbstractQuerier
 {

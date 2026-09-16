@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace LesAbstractSite\Controller;
+namespace LiebAbstractSite\Controller;
 
 use Slim\Psr7\Request;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Connection;
-use LesAbstractSite\Model\Platform;
+use LiebAbstractSite\Model\Platform;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Slim\Interfaces\RouteCollectorInterface;

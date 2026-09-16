@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace LesAbstractSite\Database\Querier\Contributor\Applier;
+namespace LiebAbstractSite\Database\Querier\Contributor\Applier;
 
 use Override;
-use LesAbstractSite\Model\Platform;
+use LiebAbstractSite\Model\Platform;
 use Doctrine\DBAL\Query\QueryBuilder;
 use LesDatabase\Query\Builder\Applier\Applier;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LesAbstractSite\Controller;
+namespace LiebAbstractSite\Controller;
 
 use Slim\Views\Twig;
 use Slim\Psr7\Request;
@@ -11,7 +11,7 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Connection;
-use LesAbstractSite\Model\Platform;
+use LiebAbstractSite\Model\Platform;
 use Psr\Http\Message\ResponseInterface;
 use LesDomain\Identifier\Generator\Uuid7IdentifierGenerator;
 use LesDatabase\Query\Builder\Applier\Values\InsertValuesApplier;

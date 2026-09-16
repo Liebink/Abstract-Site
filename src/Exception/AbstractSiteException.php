@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LesAbstractSite\Exception;
+namespace LiebAbstractSite\Exception;
 
 use Throwable;
 

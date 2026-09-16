@@ -2,15 +2,13 @@
 
 declare(strict_types=1);
 
-namespace LesAbstractSite\Database\Querier\Book;
+namespace LiebAbstractSite\Database\Querier\Book;
 
 use Override;
-use JsonException;
-use RuntimeException;
 use Doctrine\DBAL\Connection;
-use LesAbstractSite\Model\Platform;
-use LesAbstractSite\Database\Querier\AbstractQuerier;
-use LesAbstractSite\Database\Querier\Book\Applier\BookApplier;
+use LiebAbstractSite\Model\Platform;
+use LiebAbstractSite\Database\Querier\AbstractQuerier;
+use LiebAbstractSite\Database\Querier\Book\Applier\BookApplier;
 
 final class BookQuerier extends AbstractQuerier
 {

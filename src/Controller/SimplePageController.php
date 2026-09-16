@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LesAbstractSite\Controller;
+namespace LiebAbstractSite\Controller;
 
 use Slim\Views\Twig;
 use Slim\Psr7\Request;

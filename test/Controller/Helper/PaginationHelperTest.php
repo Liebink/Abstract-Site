@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Controller\Helper;
+namespace LiebAbstractSiteTest\Controller\Helper;
 
 use Psr\Http\Message\ServerRequestInterface;
-use LesAbstractSite\Controller\Helper\PaginationHelper;
+use LiebAbstractSite\Controller\Helper\PaginationHelper;
 use PHPUnit\Framework\TestCase;
 
 class PaginationHelperTest extends TestCase

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LesAbstractSite\Controller\Helper;
+namespace LiebAbstractSite\Controller\Helper;
 
 use Psr\Http\Message\ServerRequestInterface;
 
