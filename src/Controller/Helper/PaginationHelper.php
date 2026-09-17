@@ -11,14 +11,14 @@ trait PaginationHelper
 {
     private function getPaginationPage(ServerRequestInterface $request): ?int
     {
-        $page = $request->getQueryParams()['page'] ?? null;
+        $queryParams = $request->getQueryParams();
 
-        if ($page === null) {
+        if (isset($queryParams['page'])) {
+            if (is_string($queryParams['page']) && ctype_digit($queryParams['page']) && $queryParams['page'] > 1) {
+                return (int)$queryParams['page'];
+            }
+        } else {
             return 1;
-        }
-
-        if (is_string($page) && ctype_digit($page) && $page > 1) {
-            return (int) $page;
         }
 
         return null;

@@ -11,6 +11,8 @@
     "lesname/database": "^0.5.0",
     "lesname/domain": "^0.7.0",
 
+    "php-di/php-di": "^7.0.0",
+
     "slim/slim": "^4.14.0",
     "slim/psr7": "^1.6.0",
     "slim/twig-view": "^3.4.0",

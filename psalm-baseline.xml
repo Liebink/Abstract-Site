@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="7.0.0-beta21@5df32a912debecfb27ffadcd63bf9434d500dfe5">
+  <file src="src/Container/ContainerRegister.php">
+    <MixedMethodCall>
+      <code><![CDATA[new $class(
+                ...array_map(
+                    static fn(string $param): mixed => $container->get($param),
+                    $params,
+                ),
+            )]]></code>
+    </MixedMethodCall>
+  </file>
   <file src="src/Database/Querier/AbstractQuerier.php">
     <MixedAssignment>
       <code><![CDATA[$result]]></code>
