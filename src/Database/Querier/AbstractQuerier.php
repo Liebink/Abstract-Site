@@ -19,14 +19,14 @@ abstract class AbstractQuerier
         $this->builder = $db->createQueryBuilder();
     }
 
-    public function paginate(int $page, int $perPage): self
+    public function paginate(int $page, int $perPage): static
     {
         $this->builder->setFirstResult(($page - 1) * $perPage);
 
         return $this->limit($perPage);
     }
 
-    public function limit(int $limit): self
+    public function limit(int $limit): static
     {
         $this->builder->setMaxResults($limit);
 
@@ -51,7 +51,7 @@ abstract class AbstractQuerier
     }
 
     /**
-     * @return array<mixed>
+     * @return array<array<mixed>>
      *
      * @throws Exception
      */

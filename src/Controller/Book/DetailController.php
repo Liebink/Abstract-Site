@@ -6,6 +6,7 @@ namespace LiebAbstractSite\Controller\Book;
 
 use JsonException;
 use Slim\Views\Twig;
+use RuntimeException;
 use Slim\Psr7\Request;
 use Twig\Error\LoaderError;
 use Twig\Error\SyntaxError;
@@ -54,6 +55,9 @@ ORDER BY count(*) desc
 LIMIT 3
 SQL;
 
+    /**
+     * @psalm-pure
+     */
     public function __construct(
         private readonly Connection $db,
         private readonly Twig $view,
@@ -62,6 +66,8 @@ SQL;
     }
 
     /**
+     * @param array<mixed> $args
+     *
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
@@ -70,6 +76,10 @@ SQL;
      */
     public function __invoke(Request $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if (!is_string($args['gtin'])) {
+            throw new RuntimeException('Invalid GTIN');
+        }
+
         $book = (new BookQuerier($this->db, $this->platform))
             ->andWithGtin($args['gtin'])
             ->limit(1)
@@ -86,7 +96,7 @@ SQL;
                 ->withStatus(404);
         }
 
-        if (count($book['topics']) > 0) {
+        if (!isset($book['topics']) || !is_array($book['topics']) || count($book['topics']) > 0) {
             $others = [
                 'books' => $this->getTopicsAlternatives($book),
                 'mode' => 'alternatives',
@@ -94,6 +104,8 @@ SQL;
         } else {
             $others = null;
         }
+
+        assert(is_string($book['id']));
 
         $authors = (new ContributorQuerier($this->db, $this->platform))
             ->andWithBook($book['id'], 'author')
@@ -110,6 +122,13 @@ SQL;
         );
     }
 
+    /**
+     * @param array<mixed> $book
+     *
+     * @return array<mixed>
+     *
+     * @throws Exception
+     */
     private function getTopicsAlternatives(array $book): array
     {
         $parameters = [
@@ -118,9 +137,18 @@ SQL;
         ];
         $where = [];
 
-        foreach ($book['topics'] as $i => $topic) {
-            $parameters["topic_id_{$i}"] = $topic['id'];
-            $where[] = ":topic_id_{$i}";
+        if (isset($book['topics']) && is_array($book['topics'])) {
+            $position = 1;
+
+            foreach ($book['topics'] as $topic) {
+                assert(is_array($topic));
+                assert(is_string($topic['id']));
+
+                $parameters["topic_id_{$position}"] = $topic['id'];
+                $where[] = ":topic_id_{$position}";
+
+                $position += 1;
+            }
         }
 
         $query = sprintf(
@@ -133,7 +161,11 @@ SQL;
         return (new BookQuerier($this->db, $this->platform))
             ->andWithIds(
                 array_map(
-                    static fn(array $result): string => $result['reference_id'],
+                    static function (array $result): string {
+                        assert(is_string($result['reference_id']));
+
+                        return $result['reference_id'];
+                    },
                     $results,
                 ),
             )

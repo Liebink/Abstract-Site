@@ -24,6 +24,9 @@ final class PublishedController
 
     private const int PER_PAGE = 27;
 
+    /**
+     * @psalm-pure
+     */
     public function __construct(
         private readonly Connection $db,
         private readonly Twig $view,

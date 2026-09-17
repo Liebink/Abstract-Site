@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LiebAbstractSite\Controller\Book;
 
+use RuntimeException;
 use Slim\Psr7\Request;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Connection;
@@ -31,25 +32,36 @@ WHERE
     pbo.state = 'available'
 SQL;
 
+    /**
+     * @psalm-pure
+     */
     public function __construct(
         private readonly ResponseFactoryInterface $responseFactory,
         private readonly Connection $db,
     ) {}
 
     /**
+     * @param array<mixed> $args
+     *
      * @throws Exception
      */
     public function __invoke(Request $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        $result = $this->db->fetchOne(
-            self::SELECT_QUERY,
-            [
-                'gtin' => $args['gtin'],
-                'slug' => $args['via'],
-            ],
-        );
+        if (!is_string($args['gtin'])) {
+            throw new RuntimeException();
+        }
 
-        if ($result === false) {
+        $result = $this
+            ->db
+            ->fetchOne(
+                self::SELECT_QUERY,
+                [
+                    'gtin' => $args['gtin'],
+                    'slug' => $args['via'],
+                ],
+            );
+
+        if (!is_string($result)) {
             return $this
                 ->responseFactory
                 ->createResponse(302)

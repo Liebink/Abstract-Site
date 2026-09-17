@@ -74,16 +74,15 @@ final class ContainerRegister
 
     /**
      * @param class-string $class
-     * @param string[] $params
      */
-    private static function registerSimple(Container $container, string $class, ...$params): void
+    private static function registerSimple(Container $container, string $class, string ...$params): void
     {
         $container->set(
             $class,
             static fn() => new $class(
                 ...array_map(
                     static fn(string $param): mixed => $container->get($param),
-                    $params
+                    $params,
                 ),
             ),
         );
